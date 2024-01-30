@@ -1,4 +1,4 @@
-FROM ubuntu:22.04
+FROM ubuntu:latest
 
 RUN apt update && apt install -y wget
 RUN apt -y install tzdata
