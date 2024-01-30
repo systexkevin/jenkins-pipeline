@@ -1,4 +1,4 @@
-FROM ubuntu:numbat
+FROM ubuntu:noble
 
 RUN apt update && apt install -y wget
 RUN apt -y install tzdata
