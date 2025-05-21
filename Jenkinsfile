@@ -59,8 +59,9 @@ pipeline {
             export CSPM_URL=https://asia-1.api.cloudsploit.com
             trivy image --scanners misconfig,vuln,secret my-apache:1.0 
           '''
+        }
       }
     }    
   }
-  }
+}
 
