@@ -48,6 +48,11 @@ pipeline {
         }
       }
       steps {
+        withCredentials([
+          string(credentialsId: 'AQUA_KEY', variable: 'AQUA_KEY'),
+          string(credentialsId: 'AQUA_SECRET', variable: 'AQUA_SECRET'),
+          string(credentialsId: 'GITHUB_TOKEN', variable: 'GITHUB_TOKEN')
+        ]){
         sh '''
             export TRIVY_RUN_AS_PLUGIN=aqua
             export AQUA_URL=https://api.asia-1.supply-chain.cloud.aquasec.com
