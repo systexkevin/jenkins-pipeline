@@ -4,7 +4,7 @@ pipeline {
     HOME = "${env.WORKSPACE}"
   }
   stages {
-    stage('Aqua scanner') {
+    stage('Supply Chain Code Scan') {
       agent {
         docker {
           image 'aquasec/aqua-scanner'
@@ -32,9 +32,8 @@ pipeline {
     }
     stage('Build Image from Dockerfile') {
       agent {
-        docker {
-          image 'docker:latest'
-        }
+        dockerfile true
+        args '-v /var/run/docker.sock:/var/run/docker.sock'
       }
       steps {
         script {
