@@ -53,12 +53,7 @@ pipeline {
           string(credentialsId: 'AQUA_SECRET', variable: 'AQUA_SECRET'),
           string(credentialsId: 'GITHUB_TOKEN', variable: 'GITHUB_TOKEN')
         ]){
-        sh '''
-            export TRIVY_RUN_AS_PLUGIN=aqua
-            export AQUA_URL=https://api.asia-1.supply-chain.cloud.aquasec.com
-            export CSPM_URL=https://asia-1.api.cloudsploit.com
-            trivy image --scanners misconfig,vuln,secret my-apache:1.0 
-          '''
+          aqua containerRuntime: 'docker', customFlags: '', hideBase: false, hostedImage: '', localImage: 'my-apache:1.0', localToken: '', locationType: 'local', notCompliesCmd: '', onDisallowed: 'ignore', policies: 'Default', register: true, registry: '', scannerPath: '/root/scannercli', showNegligible: false, tarFilePath: ''
         }
       }
     }    
