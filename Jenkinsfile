@@ -42,11 +42,7 @@ pipeline {
     }
     
     stage('Aqua Image Scan') {
-      agent {
-        docker {
-          image 'aquasec/aqua-scanner'
-        }
-      }
+      agent any
       steps {
         withCredentials([
           string(credentialsId: 'AQUA_KEY', variable: 'AQUA_KEY'),
