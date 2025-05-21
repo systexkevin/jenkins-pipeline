@@ -31,9 +31,7 @@ pipeline {
       }       
     }
     stage('Build Image from Dockerfile') {
-      agent {
-        dockerfile true
-      }
+      agent any
       steps {
         script {
           def dockerfile = 'Dockerfile'
