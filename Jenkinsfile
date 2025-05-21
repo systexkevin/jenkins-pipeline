@@ -36,7 +36,7 @@ pipeline {
       steps {
         script {
           def dockerfile = 'Dockerfile'
-          def imageName = 'my-image:latest'
+          def imageName = 'my-apache:1.0'
           sh "docker build -t ${imageName} -f ${dockerfile} ."
         }
       }
