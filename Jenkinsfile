@@ -49,7 +49,7 @@ pipeline {
           string(credentialsId: 'AQUA_SECRET', variable: 'AQUA_SECRET'),
           string(credentialsId: 'GITHUB_TOKEN', variable: 'GITHUB_TOKEN')
         ]){
-          aqua containerRuntime: 'docker', customFlags: '', hideBase: false, hostedImage: '', localImage: 'my-apache:1.0', localToken: '', locationType: 'local', notCompliesCmd: '', onDisallowed: 'ignore', policies: 'Default', register: true, registry: '', scannerPath: '/root/scannercli', showNegligible: false, tarFilePath: ''
+          aqua containerRuntime: 'docker', customFlags: '', hideBase: false, hostedImage: '', localImage: 'my-apache:1.0', localToken: '', locationType: 'local', notCompliesCmd: '', onDisallowed: 'ignore', policies: 'Default', register: false, registry: 'systexacr', scannerPath: '/root/scannercli', showNegligible: false, tarFilePath: ''
         }
       }
     }    
