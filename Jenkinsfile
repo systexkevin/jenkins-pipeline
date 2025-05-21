@@ -55,7 +55,8 @@ pipeline {
     }
 
     stage('Manifest Generation') {
-    withCredentials([
+      steps  {
+        withCredentials([
         // Replace GITHUB_APP_CREDENTIALS_ID with the id of your github app credentials
         usernamePassword(credentialsId: 'GITHUB_APP_CREDENTIALS_ID', usernameVariable: 'GITHUB_APP', passwordVariable: 'GITHUB_TOKEN'), 
         string(credentialsId: 'AQUA_KEY', variable: 'AQUA_KEY'), 
@@ -86,7 +87,8 @@ pipeline {
                 # --artifact-path "ARTIFACT_PATH"
         '''
       }
-    }    
+    }
+  }    
   }
 }
 
