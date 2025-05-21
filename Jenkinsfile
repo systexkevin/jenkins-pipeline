@@ -1,5 +1,8 @@
 pipeline {
   agent any
+  environment {
+    HOME = "${env.WORKSPACE}"
+  }
   stages {
     stage('Aqua scanner') {
       agent {
