@@ -40,6 +40,22 @@ pipeline {
         }
       }
     }
+    
+    stage('Aqua Image Scan') {
+      agent {
+        docker {
+          image 'aquasec/aqua-scanner'
+        }
+      }
+      steps {
+        sh '''
+            export TRIVY_RUN_AS_PLUGIN=aqua
+            export AQUA_URL=https://api.asia-1.supply-chain.cloud.aquasec.com
+            export CSPM_URL=https://asia-1.api.cloudsploit.com
+            trivy image --scanners misconfig,vuln,secret my-apache:1.0 
+          '''
+      }
+    }    
   }
   }
 
